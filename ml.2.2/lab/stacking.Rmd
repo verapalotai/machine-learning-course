@@ -116,7 +116,7 @@ setnames(level_1_dt, c("glm", "gbm", "dl"))
 ggcorr(level_1_dt, label = TRUE, label_round = 2)
 ```
 
-
+# performance metric is AUC!!
 ```{r}
 # test set performances
 print(h2o.auc(h2o.performance(glm_model, newdata = data_test)))
@@ -195,6 +195,8 @@ automl_model <- h2o.automl(X, y,
 ```
 
 "Leaderboard" of the models: how well they perform based on cross-validation.
+all models using every model
+best using the best from each type of models
 ```{r}
 lb <- automl_model@leaderboard
 print(lb, n = nrow(lb))
